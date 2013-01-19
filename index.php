@@ -80,7 +80,8 @@ if (!isset($page)) {
 <?php
 // main menu
 if (preg_match('/^menu/',$page)) {
-	$e = explode('-',$page)[1];
+	$e = explode('-',$page);
+	$e = $e[1];
 	print('<ul data-role="listview" data-filter="true" data-filter-theme="a" data-filter-placeholder="Filter ..." data-inset="false" data-theme="a">');
 	for ($i = 0; $i < count($menu[$e]);$i++) {
 		if (preg_match('/menu/',$menu[$e][$i]['link'])) $arrow = ' data-icon="forward"';
