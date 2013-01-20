@@ -31,10 +31,6 @@ if (!isset($page)) {
 	$title = 'Buch der Namen';
 }
 
-
-
-
-
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -116,8 +112,8 @@ if (preg_match('/^cat/',$page)) {
 			<h1>Info</h1>
 		</div><!-- header -->
 		<div data-role="content" id="content">
-			<p class="text">Diese App beruht auf dem <a href="http://www.chizuranjida.de/dsa/dokumente/namen.pdf">Buch der Namen (PDF)</a>, das von Stephanie von Ribbeck zusammengestellt wurde. Es werden die Regeln und Richtlinien aus dieser Liste verwendet. Diese sind in keinem Fall verbindlich oder einzig gültig.</p>
-			<p class="text">Der Namensgenerator ist in erster Linie als Hilfsmittel für Meister gedacht, damit sie eine einfache und schnelle Möglichkeit haben, NSCs mit passenden Namen auszustatten. Für Spieler kann er natürlich auch als Ausgangspunkt für das Findes des Charakternamens dienen.</p>
+			<p>Diese App beruht auf dem <a href="http://www.chizuranjida.de/dsa/dokumente/namen.pdf">Buch der Namen (PDF)</a>, das von Stephanie von Ribbeck zusammengestellt wurde. Es werden die Regeln und Richtlinien aus dieser Liste verwendet. Diese sind in keinem Fall verbindlich oder einzig gültig.</p>
+			<p>Der Namensgenerator ist in erster Linie als Hilfsmittel für Meister gedacht, damit sie eine einfache und schnelle Möglichkeit haben, NSCs mit passenden Namen auszustatten. Für Spieler kann er natürlich auch als Ausgangspunkt für das Findes des Charakternamens dienen.</p>
 			<p class="copy">DAS SCHWARZE AUGE, AVENTURIEN und DERE sind eingetragene Marken in Schrift und Bild der Ulisses Medien und Spiel Distribution GmbH oder deren Partner.</p>
 		</div><!-- /content -->
 	<div data-role="footer" position="fixed" id="footer">

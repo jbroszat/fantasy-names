@@ -1,5 +1,6 @@
 <?php
 require_once('data/names.php');
+require_once('data/places.php');
 require_once('data/functions.php');
 
 // processing parameters
@@ -54,6 +55,7 @@ switch ($cat) {
 	case 'bosparano':$html = makeBosparanoNameList($cat,$gdr,$num,$_GET);break;
 	case 'garethien':$html = makeGarethienNameList($cat,$gdr,$num,$_GET);break;
 	case 'drache':$html = makeDracheNameList($cat,'w',$num);break;
+	case 'nostria':$html = makeNostriaNameList($cat,$gdr,$num,$_GET);break;
 }
 
 print $html;

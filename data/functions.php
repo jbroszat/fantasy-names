@@ -154,7 +154,7 @@ function explodeNameList($cat,$idx) {
 }
 
 function explodePlaceList($cat,$idx) {
-	global $names;
+	global $places;
 
 	$namelist = explode(',',$places[$cat][$idx]);
 	foreach ($namelist as &$val) {
@@ -768,8 +768,8 @@ function makeGarethienNameList($cat,$gdr,$num,$get) {
 	}
 
 	if ($nbl == 'f') {
-		$places_pre = explodeNameList($cat,12);
-		$places_suf = explodeNameList($cat,13);
+		$places_pre = explodePlaceList($cat,12);
+		$places_suf = explodePlaceList($cat,13);
 		foreach ($places_pre as &$value) {
 			$value = trim($value,'-');
 		}
@@ -848,6 +848,75 @@ function makeDracheNameList($cat,$gdr,$num) {
 
 	foreach ($namelist as &$value) {
 		$value = $value.$suf_namelist[mt_rand(0,count($suf_namelist)-1)];
+	}
+
+	return makeList($namelist);
+}
+
+// garethi, nostria
+function makeNostriaNameList($cat,$gdr,$num,$get) {
+	global $names;
+
+	if ( ($gdr != 'w') && ($gdr != 'm') ) $gdr = 'w';
+
+	if ($gdr == 'w') $gdr = 0;
+		else $gdr = 1;
+
+	$nbl = 'l';
+	if (isset($get)) {
+		if ( ($get['nbl'] == 'l') || ($get['nbl'] == 's') ||
+			($get['nbl'] == 'a') ) $nbl = $get['nbl'];
+	}
+
+	if ($nbl == 'l') {
+		$namelist = explodeNameList($cat,$gdr+4);
+		shuffle($namelist);
+		$namelist = array_slice($namelist,0,$num);
+	} else {
+		$namelist = explodeNameList($cat,$gdr+6);
+		shuffle($namelist);
+		$namelist = array_slice($namelist,0,$num);
+	}
+
+	if ($nbl == 'l') {
+		$cj_list = explodeNameList($cat,10);
+		$cj_m = count($cj_list) - 1;
+		$ln_list = explodeNameList($cat,9);
+		$ln_m = count($ln_list) - 1;
+
+		foreach ($namelist as &$value) {
+			$value = $value.' '.$cj_list[mt_rand(0,$cj_m)].' '.$ln_list[mt_rand(0,$ln_m)];
+		}
+	}
+
+	if ($nbl == 's') {
+		$ln_list = explodeNameList($cat,8);
+		$ln_m = count($ln_list) - 1;
+
+		foreach ($namelist as &$value) {
+			$value = $value.' '.$ln_list[mt_rand(0,$ln_m)];
+		}
+	}
+
+	if ($nbl == 'a') {
+		$ln_list = explodeNameList($cat,8);
+		$ln_m = count($ln_list) - 1;
+		$pp_list = explodePlaceList($cat,0);
+		$pp_m = count($pp_list) - 1;
+		$ps_list = explodePlaceList($cat,1);
+		$ps_m = count($ps_list) - 1;
+		$sn_list = explodeNameList($cat,$gdr+6);
+		$rnd_curve = array(1,1,2,2,2,2,3,3,3,4);
+
+		foreach ($namelist as &$value) {
+			$n = $rnd_curve[mt_rand(0,9)];
+			$rand_arr = (array) array_rand($sn_list,$n);
+			foreach ($rand_arr as $nm_i) {
+				$value = $value.' '.$sn_list[$nm_i];
+			}
+			$plc = $pp_list[mt_rand(0,$pp_m)].$ps_list[mt_rand(0,$ps_m)];
+			$value = $value.' von '.$ln_list[mt_rand(0,$ln_m)].'-'.$plc;
+		}
 	}
 
 	return makeList($namelist);

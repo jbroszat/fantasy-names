@@ -93,16 +93,6 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-div.copy {
-	margin-top:35px;
-	text-align:center;
-	font-size:8pt;
-}
-
-div.text {
-	margin-bottom:10px;
-}
-
 p.copy {
 	text-align:center;
 	font-size:8pt;
